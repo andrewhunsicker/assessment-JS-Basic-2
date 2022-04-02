@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+const pizza = {
+    name: `pepporoni`,
+    price: 5,
+    category: `entree`,
+    popularity: `10`,
+    rating: 10,
+    tags: [`meat`, `good`,`yummy`, `classic`,`cheese`,`kids`,`all ages`]
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,6 +50,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity)
 
 
 /*
@@ -53,7 +61,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +71,7 @@
 */
 
 //CODE HERE
-
+const {price} = pizza
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+const {category} = pizza
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +97,48 @@
 */
 
 //CODE HERE
-
+ const foodArr =[
+     {
+        name: `marshan`,
+        price: 3,
+        category: `entree`,
+        popularity: `3`,
+        rating: 8,
+        tags: [`tofu`, `scary`,`unique`,`cheese`,`all ages`]
+     },
+     {
+        name: `meatlovers`,
+        price: 8,
+        category: `entree`,
+        popularity: `10`,
+        rating: 10,
+        tags: [`meat`, `good`,`yummy`, `classic`,`cheese`,`heavy`]
+     },
+     {
+        name: `veggie`,
+        price: 25,
+        category: `entree`,
+        popularity: `7`,
+        rating: 7,
+        tags: [`lame`, `yucky`,`overprice`, `veggies`,`cheese`,`kids`,]
+     },
+     {
+        name: `hawaiian`,
+        price: 6,
+        category: `entree`,
+        popularity: `5`,
+        rating: 10,
+        tags: [`meat`, `good`,`yummy`, `pineapple`,`cheese`,`kids`,`all ages`,`bargain`]
+     },
+     {
+        name: `supreme`,
+        price: 4,
+        category: `entree`,
+        popularity: `10`,
+        rating: 9,
+        tags: [`meat`, `veggies`,`yummy`, `classic`,`cheese`,`SECRET INGREDIENT DON'T TELL FEDS`,`all ages`,`the best one`]
+     }
+ ]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,8 +155,10 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+ const filteredFood = foodArr.filter(pizzaObj=>{
+     return pizzaObj.tags.includes(`veggies`)
+ })
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -149,7 +201,18 @@
 */
 
 //CODE HERE
-
+const filterByProperty = (property, number, type) =>{
+    const filteredArr = foodArr.filter(pizza =>{
+        if(type === "above"){
+            return pizza[property] > number
+        }else if(type === `below`){
+            return pizza[property] < number
+        }else{
+            return `you did not enter a valid type`
+        }
+    })
+    return filteredArr
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -158,4 +221,4 @@
     You'll have to console.log to see the filtered array
 */
 
-//CODE HERE
+console.log(filterByProperty(`price`, 6, `below`))

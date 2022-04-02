@@ -51,11 +51,19 @@ greetUser(`andrew`)
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
+
 const canWeDeliver = (zipCode) => {
-    for(let i = 0; i < deliveryAreaZipCodes.length; i++)
-    if(deliveryAreaZipCodes[i] !== zipCode){
-         `sorry we can't deliver to you.`
-    }else{return `You are in our delivery zone!`
+    let canDeliver = false
+    deliveryAreaZipCodes.forEach(zip =>{
+        if(zip === zipCode){
+            canDeliver = true
+        }
+    })
+if(canDeliver){
+    return `You are in our delivery zone!`
+}
+else{ 
+    return `sorry we can't deliver to you.`
 }
 }
 console.log(canWeDeliver(85205))
@@ -77,8 +85,14 @@ console.log(canWeDeliver(85205))
 */
 
 // CODE HERE
-
-
+canWeDeliverTwo = (zipCode) => {
+    if(deliveryAreaZipCodes.includes(zipCode)){
+       return `You are in our delivery zone!!`
+    }else{
+        return `sorry we cannot deliver to you!`
+    }
+}
+console.log(canWeDeliverTwo(852055))
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -114,8 +128,8 @@ const deals = [
 
 //CODE HERE
 
-
-
+deals[0].title = deals[0].title.replace(`5`, `0`)
+console.log(deals)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -130,3 +144,5 @@ const deals = [
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace(`March`, `April`).trim()
+console.log(deals)

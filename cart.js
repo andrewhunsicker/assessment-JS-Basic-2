@@ -35,7 +35,8 @@ const cart = [
 
 //CODE HERE
 
- const summedPrice = cart.reduce(( a, b,) =>  a + b)
+ const summedPrice = cart.reduce(( a, b,) => { 
+     return a + b.price}, 0)
  console.log(summedPrice)
 
 
@@ -56,9 +57,9 @@ const cart = [
 
 //CODE HERE
 const calcFinalPrice = (cartTotal, couponValue, tax) => {
-    cartTotal * tax + cartTotal - couponValue
+   return (cartTotal * (1 + tax)) - couponValue
 }
-console.log(calcFinalPrice(26.97, 10, .06))
+console.log(calcFinalPrice(14, 2, .5))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -82,12 +83,21 @@ console.log(calcFinalPrice(26.97, 10, .06))
 
 /*
     TEXT ANSWER HERE
-    CUSTOMER OBJECT 1: customerName, 2: customerOrder, 3 CustomerTotal, 4:areTheyRegular
-*/
-
+    CUSTOMER OBJECT 
+1 name : need to know name string
+2 address: string
+3 regular status: boolean
+4 allergies: array
 /*
     Now, create a customer object following your own
     guidelines.
 */
 
 //CODE HERE
+const customer = {
+    name : `andrew h`,
+    address : `somewhere in a swampland`,
+    regular : true,
+    allergies : [`bad attitude`, `people who are mean to servers`,`gluten free foods`]
+    
+}

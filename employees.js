@@ -20,21 +20,18 @@
 */
 
 //CODE HERE
-class employee{
-    constructor(empName, shifts){
-    this.empName = empName;
+class Employee{
+    constructor(name, shifts){
+    this.name = name;
     this.shifts = shifts;
 }
+ getSchedule = ()  => {
+    console.log(`${this.name} works on ${this.shifts}`)
 }
-empOne = new employee(`jess`, `weekday mornings, weekday afternoons.`)
-    this.empName = `jess`;
-    this.shifts = `weekday mornings, weekday afternoons.`;
-
+}
 
         
-const getSchedule = ()  => {
-    return `${this.empName} works on ${this.shifts}`
-}
+
 
 /*
     Create a new instance of your class.
@@ -45,7 +42,8 @@ const getSchedule = ()  => {
     name: Jess
     shifts: weekday mornings, weekday afternoons
 */
-
+const empOne = new Employee(`jess`, [`weekday morning, weekday afternoon.`])
+   
 
 
 /*
@@ -54,7 +52,8 @@ const getSchedule = ()  => {
 */
 
 //CODE HERE
-console.log(getSchedule(empOne))
+//console.log(getSchedule(empOne))
+empOne.getSchedule()
 
 /*
     Make a copy of the empOne object
@@ -69,10 +68,13 @@ console.log(getSchedule(empOne))
 */
 
 //CODE HERE
-let empTwo = {...empOne}
-empTwo.empName = `Nick`
-console.log(getSchedule(empTwo))
+const empTwo = {...empOne, name : `Nick`};
+//console.log(empTwo)
 
+
+
+//console.log(getSchedule(empTwo))
+empTwo.getSchedule()
 
 
 //////////////////PROBLEM 2////////////////////
@@ -100,7 +102,17 @@ console.log(getSchedule(empTwo))
 
 //CODE HERE
 
-
+class Manager extends Employee{
+    constructor(name,shifts,employees){
+    super(name, shifts)
+    this.employees = employees
+}
+getEmployees(){
+    console.log(`${this.name} manages${this.employees}`)
+}
+addemployee(emp) { this.employees.push(emp)
+}
+}
 
 /*
     Create a new instance of your class.
@@ -114,7 +126,7 @@ console.log(getSchedule(empTwo))
 */
 
 //CODE HERE
-
+const manager = new Manager(`Winstion`,[`weekday mornings`, `weekday afternoons`], [`Cece`, `and Schmidt.`])
 
 /*
     Call the `getEmployees` method on the
@@ -122,7 +134,7 @@ console.log(getSchedule(empTwo))
 */
 
 //CODE HERE
-
+manager.getEmployees()
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -130,7 +142,7 @@ console.log(getSchedule(empTwo))
 */
 
 //CODE HERE 
-
+manager.addemployee(`Coach`)
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -138,3 +150,4 @@ console.log(getSchedule(empTwo))
 */
 
 //CODE HERE
+manager.getEmployees()
